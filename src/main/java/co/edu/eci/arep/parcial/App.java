@@ -17,16 +17,20 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.json.JSONObject;
 import spark.Request;
 import spark.Response; 
 import static spark.Spark.*;
 
 public class App {
-
+    
+        static String resultJson = "";
+                
         public static void main(String[] args) {
         port(getPort());
         get("/inputdata", (req, res) -> inputDataPage(req, res));
         get("/results", (req, res) -> resultsPage(req, res));
+        get("/resultJson", (req, res) -> resultsPageJson(req, res));
         
        
     }
@@ -50,7 +54,7 @@ public class App {
                 + "<h1>Parcial corte 1</h1>"
                 + "<h3> Parcial de servidores y clientes  Con sparkweb </h3>"
                 + "<hr/>"
-                + "<form action=\"/results\">"
+                + "<form action=\"/resultJson\">"
                 +"<label>"
                 + "  ingrese los numeros a evaluar:<br>"
                 + "  <input id=\"numero\" type=\"text\" name=\"numero\" placeholder=\"ingrese un numero\">"
@@ -93,7 +97,8 @@ public class App {
         String sdatos = "la lista ordenada queda asi :" + datos.toString() ; 
         Gson g = new Gson();
         Resultado r = new Resultado(prom,sum,datos);
-        String resultJson = g.toJson(r);
+        resultJson = g.toJson(r);
+        
          String pageContent
                 = "<!DOCTYPE html>"
                 + "<html>"
@@ -123,6 +128,31 @@ public class App {
         return pageContent;
     }
 
+    private static JSONObject resultsPageJson(Request req, Response res) {
+          Calculator calculator = new Calculator();
+        
+        System.out.println("entra al response");
+        List datos = getList(req.queryParams("lista"));
+        // asignacion de funcion flecha interface funcional
+        ListOp promedio = (x) -> calculator.promedio(x);
+        ListOp sumatoria = (x) -> calculator.sumatoria(x);
+        
+        // resutlado de consultas
+        
+        Double prom = calculator.StatOperation(datos, promedio);
+        Double sum = calculator.StatOperation(datos, sumatoria);
+        String sprom = "la media de los datos es : " + prom;
+        String ssum ="la desviacion estandar de los datos es :" + sum;
+        String sdatos = "la lista ordenada queda asi :" + datos.toString() ; 
+        Gson g = new Gson();
+        Resultado r = new Resultado(prom,sum,datos);
+        resultJson = g.toJson(r);
+        
+         JSONObject jsonObject = new JSONObject(resultJson);
+         System.out.println(jsonObject);
+        return jsonObject;
+        
+    }
     
     private static List getList (String toArr){
         
