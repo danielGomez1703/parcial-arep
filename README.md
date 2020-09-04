@@ -13,6 +13,10 @@ para consultar unicamenteel json
 
     modifique: https://parcial-arep.herokuapp.com/resulJson?<QUERY>
 
+para hacer la prueba del cliente en java ingrese el sieguiente comando en consola
+    
+    java -cp target/parcial-1.0-SNAPSHOT.jar  co/edu/eci/arep/parcial/server/HttpClient
+
 
 ## Author
     Daniel Felipe Gomez Suarez [danielgomez1703](https://github.com/danielGomez1703)
