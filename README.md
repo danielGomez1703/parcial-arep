@@ -1,9 +1,13 @@
 # Parcial CORTE 1 AREP 
 
+
+[![CircleCI](https://circleci.com/gh/danielGomez1703/parcial-arep.svg?style=svg)](https://circleci.com/gh/danielGomez1703/parcial-arep)
+
+
+
 Despliegue en heroku [en este enlace](https://parcial-arep.herokuapp.com/inputdata)
 
 
-[![CircleCI](https://circleci.com/gh/danielGomez1703/parcial-arep.svg?style=svg)](https://circleci.com/gh/danielGomez1703/parcial-arep)
 
 para consultar unicamenteel json 
 
