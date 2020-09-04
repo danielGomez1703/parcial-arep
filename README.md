@@ -1,5 +1,11 @@
 # Parcial CORTE 1 AREP 
 
+Despliegue en heroku [en este enlace](https://parcial-arep.herokuapp.com/inputdata)
+
+para consultar unicamenteel json 
+
+    modifique: https://parcial-arep.herokuapp.com/resulJson?<QUERY>
+
 
 ## Author
     Daniel Felipe Gomez Suarez [danielgomez1703](https://github.com/danielGomez1703)

@@ -23,7 +23,7 @@ public class Calculator {
         for (int i=0 ; i<list.size(); i++){
             med+=list.get(i);
         }
-        System.out.println(med);
+   
         return (med/list.size());
     }
     
@@ -37,7 +37,6 @@ public class Calculator {
         for (int i=0 ; i<list.size(); i++){
             sum+=list.get(i);
         }
-        System.out.println(sum);
         return sum;
     }
     

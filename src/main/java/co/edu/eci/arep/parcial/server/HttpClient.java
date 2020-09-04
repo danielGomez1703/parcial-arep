@@ -15,7 +15,8 @@ import java.net.*;
 public class HttpClient {
 
     public static void main(String[] args) throws IOException {
-        URL pagina = new URL("https://parcial-arep.herokuapp.com/resultsJson?numero=&lista=9%2C8%2C7%2C6%2C5%2C4");
+        
+        URL pagina = new URL("https://parcial-arep.herokuapp.com/resultJson?numero=&lista=3%2C4%2C1%2C7%2C3");
         URLConnection connection = pagina.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 connection.getInputStream()));

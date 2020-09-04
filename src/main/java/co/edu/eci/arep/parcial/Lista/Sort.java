@@ -15,11 +15,16 @@ import java.util.List;
  */
 public class Sort {
 
+     /**
+      * ordena la lista ingresada
+      * @param lista lista de String proveniente del servidor web
+      * @return  lista ya ordenada de menor a mayor
+      */
     public static List bubbleSort(String[] lista) {
         
         Double[] listnums = new Double[lista.length];
         for (int j = 0; j < lista.length; j++) {
-            System.out.println(lista[j]);
+     
             listnums[j] = Double.parseDouble(lista[j]);
         }
        

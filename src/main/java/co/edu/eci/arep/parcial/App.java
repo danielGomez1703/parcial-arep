@@ -54,11 +54,13 @@ public class App {
                 + "<h1>Parcial corte 1</h1>"
                 + "<h3> Parcial de servidores y clientes  Con sparkweb </h3>"
                 + "<hr/>"
-                + "<form action=\"/resultJson\">"
+                + "<form action=\"/results\">"
                 +"<label>"
-                + "  ingrese los numeros a evaluar:<br>"
+                + "  ingrese los numeros a evaluar UNO POR UNO :<br>"
                 + "  <input id=\"numero\" type=\"text\" name=\"numero\" placeholder=\"ingrese un numero\">"
                 +"   <button type=\"button\" onclick=\"myFunction()\">agregar valor</button>"
+                +" <br/>"
+                +"<p> digita un numero y presiona el boton para agregar a la lista"
                 +" <br/>"
                 +"</label>"
                 +" <br/>"
@@ -149,7 +151,6 @@ public class App {
         resultJson = g.toJson(r);
         
          JSONObject jsonObject = new JSONObject(resultJson);
-         System.out.println(jsonObject);
         return jsonObject;
         
     }
@@ -158,7 +159,6 @@ public class App {
         
         String[] parts = toArr.split(",");  
         List sortedList =Sort.bubbleSort(parts);
-        System.out.println(sortedList.toString());
         return sortedList;
     }
     /**
